@@ -7,11 +7,11 @@ import 'swiper/css/navigation';
 
 const Slider = () => {
     return (
-        <div className='lg:w-[85%] w-[95%] mx-auto rounded-2xl border'>
+        <div className='lg:w-[85%] w-[95%] mx-auto rounded-2xl'>
            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        <SwiperSlide><img className='w-[1000px]' src="https://www.blazingcoders.com/appdata/blogs/130/carrierguidenceblazingcoders.png" alt="" /></SwiperSlide>
-        <SwiperSlide><img className='w-[1000px]' src="https://media.licdn.com/dms/image/D5612AQF5zJwY1m0JoA/article-cover_image-shrink_600_2000/0/1716375187041?e=2147483647&v=beta&t=WiwhopNwWGyKNgtaDUYxCOtPSge9jK0HwlAylBLU1AE" alt="" /></SwiperSlide>
-        <SwiperSlide><img className='w-[1000px]' src="https://miro.medium.com/v2/resize:fit:543/1*CRIUB3VMicWCVZEBpZOXqg.png" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-[1000px]' src="https://t3.ftcdn.net/jpg/02/57/49/32/360_F_257493248_exlhRge9HrHPAUu2d8vRGEWAaqXmTotx.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-[1000px]' src="https://4.imimg.com/data4/XO/TR/MY-30165244/team-sports-goods-500x500.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-[1000px]' src="https://mrcheckout.net/wp-content/uploads/2014/10/Sporting-Goods-Sportswear-Wholesale-Distributors.jpg" alt="" /></SwiperSlide>
       </Swiper>
         </div>
     );
