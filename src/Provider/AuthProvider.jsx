@@ -24,7 +24,15 @@ const AuthProvider = ({children}) => {
         
       }
       fetchData();
+      const fetchData2 = async () => {
+        const response = await fetch('http://localhost:5000/api/equipments/');
+        const data = await response.json();
+        setEquipments(data.data);
+    };
+    fetchData2();
       },[])
+
+    
     
 
     const createUser = (email, password) =>{

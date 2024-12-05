@@ -36,50 +36,90 @@ const Login = () => {
     }
     
     return (
-      <div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
         <Helmet>
-        <title>Login Page</title>
-        
-      </Helmet>
-         <div className="hero bg-base-200 min-h-screen">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
-      </p>
-    </div>
-    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <form onSubmit={handleLogin} className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" placeholder="email" name='email' className="input input-bordered" required />
+          <title>Login Page</title>
+        </Helmet>
+        <div className="w-full max-w-lg bg-white shadow-lg rounded-xl p-8">
+          <h1 className="text-3xl font-bold text-center text-blue-800 mb-6">Welcome Back!</h1>
+          <p className="text-gray-500 text-center mb-8">
+            Please login to your account to continue.
+          </p>
+          <form onSubmit={handleLogin}>
+            {/* Email Field */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              />
+            </div>
+  
+            {/* Password Field */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              />
+            </div>
+  
+            {/* Forgot Password */}
+            <div className="mb-4 flex justify-between items-center">
+              <Link
+                to="/forgotpassword"
+                className="text-sm text-blue-600 hover:underline"
+              >
+                Forgot Password?
+              </Link>
+            </div>
+  
+            {/* Login Button */}
+            <button
+              type="submit"
+              className="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+            >
+              Login
+            </button>
+          </form>
+  
+          <div className="mt-6 flex items-center justify-between">
+            <hr className="w-1/3 border-gray-300" />
+            <span className="text-gray-500 text-sm">or</span>
+            <hr className="w-1/3 border-gray-300" />
+          </div>
+  
+          {/* Google Sign-In */}
+          <button
+            onClick={handleSignInWithGoogle}
+            className="mt-6 w-full py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-3 text-gray-600 hover:bg-gray-100 transition duration-300"
+          >
+            <i class="fa-brands fa-google"></i>
+            Sign in with Google
+          </button>
+  
+          {/* Register Link */}
+          <p className="text-center mt-6 text-gray-600">
+            Don’t have an account?{" "}
+            <Link
+              to="/register"
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              Register
+            </Link>
+          </p>
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input type="password" placeholder="password" name='password' className="input input-bordered" required />
-          <label className="label">
-            <Link to="/forgotpassword" className="label-text-alt link link-hover">Forgot password?</Link>
-          </label>
-          <label className="label">
-            <Link to='/register' className="label-text-alt link link-hover">Create New Account</Link>
-          </label>
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
-        </div>
-      </form>
-      <button onClick={handleSignInWithGoogle} className='btn'>Google</button>
-    </div>
-  </div>
-</div>
       </div>
-       
     );
 };
 

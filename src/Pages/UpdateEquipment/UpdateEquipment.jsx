@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const UpdateEquipment = () => {
 
-
+  const {user} = useContext(AuthContext);
+const navigate = useNavigate();
    const equipData = useLoaderData();
 
 
@@ -40,115 +43,202 @@ const UpdateEquipment = () => {
             });
             const data = await response.json();
             console.log(data)
+            toast.success('Equipment has been updated successfully');
+            navigate(-1);
         }
         fetchData();
 
     }
     return (
-        <div>
-            <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-      <form className="card-body" onSubmit={handleUpdateEquipment}>
-        <div className='flex'>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">User Name</span>
-          </label>
-          <input type="text" placeholder="User Name" name='userName'  defaultValue='' className="input input-bordered" required />
+      <div className="min-h-screen bg-gray-50 flex justify-center items-center py-10">
+        <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-8">
+          <h1 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+            Update Equipment
+          </h1>
+          <form className="space-y-6" onSubmit={handleUpdateEquipment}>
+            {/* Row 1: User Name & Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  User Name
+                </label>
+                <input
+                  type="text"
+                  name="userName"
+                  value={user?.displayName || ""}
+                  readOnly
+                  placeholder="User Name"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  User Email
+                </label>
+                <input
+                  type="email"
+                  name="userEmail"
+                  value={user?.email || ""}
+                  readOnly
+                  placeholder="User Email"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+            </div>
+  
+            {/* Row 2: Item Name, Category & Processing Time */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Item Name
+                </label>
+                <input
+                  type="text"
+                  name="itemName"
+                  defaultValue={itemName}
+                  placeholder="Item Name"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Category
+                </label>
+                <select
+                  name="category"
+                  defaultValue={category}
+                  className="select select-bordered w-full"
+                  required
+                >
+                  <option disabled defaultValue={category}>
+                    Select Category
+                  </option>
+                  <option value="Football">Football</option>
+                  <option value="Cricket">Cricket</option>
+                  <option value="Basketball">Basketball</option>
+                  <option value="Tennis">Run Race</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Processing Time
+                </label>
+                <select
+                  name="processingTime"
+                  defaultValue={processingTime}
+                  className="select select-bordered w-full"
+                  required
+                >
+                  <option disabled value="">
+                    Select Time
+                  </option>
+                  <option value="1-2 Days">1-2 Days</option>
+                  <option value="3-5 Days">3-5 Days</option>
+                  <option value="1 Week">1 Week</option>
+                </select>
+              </div>
+            </div>
+  
+            {/* Row 3: Price, Rating & Stock Status */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Price
+                </label>
+                <input
+                  type="text"
+                  name="price"
+                  defaultValue={price}
+                  placeholder="Price"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Rating
+                </label>
+                <input
+                  type="text"
+                  step="0.1"
+                  max="5"
+                  min="0"
+                  name="rating"
+                  defaultValue={rating}
+                  placeholder="Rating"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Stock Status
+                </label>
+                <input
+                  type="text"
+                  name="stockStatus"
+                  defaultValue={stockStatus}
+                  placeholder="Quantity"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+            </div>
+  
+            {/* Row 4: Description */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">
+                Description
+              </label>
+              <textarea
+                name="description"
+                defaultValue={description}
+                placeholder="Description"
+                className="textarea textarea-bordered w-full"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+  
+            {/* Row 5: Customization */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">
+                Customization
+              </label>
+              <textarea
+                name="customization"
+                defaultValue={customization}
+                placeholder="Special features or customizations"
+                className="textarea textarea-bordered w-full"
+                rows="3"
+              ></textarea>
+            </div>
+  
+            {/* Row 6: Image URL */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">
+                Image URL
+              </label>
+              <input
+                type="text"
+                name="imageURL"
+                defaultValue={imageURL}
+                placeholder="Image URL"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
+  
+            {/* Submit Button */}
+            <div className="mt-6 text-center">
+              <button className="btn btn-primary w-full md:w-1/3">Update</button>
+            </div>
+          </form>
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">User Email</span>
-          </label>
-          <input type="email" placeholder="User Email" defaultValue='' name='userEmail' className="input input-bordered" required />
-        </div>
-        </div>
-       <div className='flex'>
-       <div className="form-control">
-          <label className="label">
-            <span className="label-text">Item Name</span>
-          </label>
-          <input type="text" placeholder="Item Name" name='itemName' defaultValue={itemName}  className="input input-bordered" required />
-        </div>
-        
-
-
-        <div className="form-control">
-  <label className="label">
-    <span className="label-text">Category</span>
-  </label>
-  <select
-    className="select select-bordered w-full"
-    name="category"
-    defaultValue={category} // Set defaultValue to the fetched category
-  >
-    <option disabled value="">
-      Select Category
-    </option>
-    <option value="Football">Football</option>
-    <option value="Cricket">Cricket</option>
-    <option value="Basketball">Basketball</option>
-    <option value="Tennis">Run Race</option>
-  </select>
-</div>
-
-
-
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Processing Time</span>
-          </label>
-          <select className="select select-bordered w-full" name='processingTime' defaultValue={processingTime}>
-            <option disabled selected>Select Time</option>
-            <option>Han Solo</option>
-            <option>Greedo</option>
-            </select>
-        </div>
-       </div>
-        <div className='flex'>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Price</span>
-          </label>
-          <input type="text" placeholder="Price" name='price' className="input input-bordered" defaultValue={price} required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Rating</span>
-          </label>
-          <input type="text" placeholder="Rating" defaultValue={rating} name='rating' className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Stock Status</span>
-          </label>
-          <input type="text" placeholder="Quantity" defaultValue={stockStatus} name='stockStatus' className="input input-bordered" required />
-        </div>
-        </div>
-        
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Description</span>
-          </label>
-          <textarea className="textarea textarea-bordered" name='description' defaultValue={description} placeholder="Description"></textarea>
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Customization</span>
-          </label>
-          <textarea className="textarea textarea-bordered" name='customization' placeholder="Describe any special features or customizations available (e.g., extra grip, personalized engraving, favorite colors, weight, logo engraving etc.)" defaultValue={customization}></textarea>
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Image URL</span>
-          </label>
-          <input type="text" placeholder="Image URL" name='imageURL' defaultValue={imageURL} className="input input-bordered" required />
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">Update Equipment</button>
-        </div>
-      </form>
-    </div>
-        </div>
+      </div>
     );
 };
 

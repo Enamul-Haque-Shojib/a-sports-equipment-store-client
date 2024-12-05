@@ -2,55 +2,26 @@ import React, { useContext, useEffect, useState } from 'react';
 import Category from '../Category/Category';
 import { AuthContext } from '../../Provider/AuthProvider';
 
-const Categories = () => {
-    // const {} = useContext(AuthContext);
-    const [categories, setCategories] = useState([]);
+const Categories = ({handleCategories}) => {
+
+    const {categories} = useContext(AuthContext);
 
 
-useEffect(() =>{
-    const fetchData = async()=>{
-        const response = await fetch('http://localhost:5000/api/categories/');
-        const data = await response.json();
-        setCategories(data.data);
-    }
-    fetchData();
-
-   
-},[]);
-
-
-const handleCategories=(category)=>{
-        
-
-      
-}
   
-  
-
-
-
-
-    return (
-        <div className='border lg:w-[20%] w-full p-3 flex flex-col gap-y-5 rounded-xl'>
-
-
-      {
-      categories.map((category) => (
-            <Category 
+return (
+    <div className="bg-gray-100 p-5 rounded-lg shadow-lg lg:w-[20%] w-full">
+      <h2 className="text-xl font-semibold mb-4 text-gray-800">Categories</h2>
+      <div className="flex flex-col gap-4">
+        {categories.map((category) => (
+          <Category
             key={category._id}
             category={category}
-            handleCategories = {handleCategories}
-            ></Category>
-        ))
-      }
-  
-
-  
-
-     
-
-        </div>
-    );
+            handleCategories={handleCategories}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Categories;

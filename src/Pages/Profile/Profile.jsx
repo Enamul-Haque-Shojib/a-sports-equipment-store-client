@@ -4,9 +4,11 @@ import { Helmet } from 'react-helmet-async';
 import { auth } from '../../Firebase/firebase.init';
 import { toast } from 'react-toastify';
 import { deleteUser, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
+import './Profile.css'
 
 const Profile = () => {
     const {user,setUser, updateUserProfile, loading, deleteUserProfile} = useContext(AuthContext);
+    
     
     if(loading) {
         return <span className="loading loading-bars loading-lg"></span>
@@ -86,75 +88,92 @@ const handleDeleteAccount=async()=>{
   
 }
 
-    return (
-        <div>
-          <Helmet>
-        <title>Profile Page</title>
-        
-      </Helmet>
-            <div className="hero bg-base-200 min-h-screen">
-  <div className="hero-content flex-col justify-center items-center">
+return (
+  <div>
+    <Helmet>
+      <title>Profile Page</title>
+    </Helmet>
 
-{
-    photoURL ?  
-    <img
-      src={photoURL}
-      className="w-[200px] h-[200px] rounded-full shadow-2xl" />
-    : 
-    <img
-      src='https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI='
-      className="w-[500px] h-[500px] rounded-full shadow-2xl" />
-}
-    
-    
-      <h1 className="text-3xl font-bold">{displayName}</h1>
-      <p className="py-2 text-xl">
-        {email}
-      </p>
-      <div>
-      <button className="btn btn-primary" onClick={()=>document.getElementById('my_modal_1').showModal()}>Update Profile</button>
-      <button className="btn bg-red-600 text-white" onClick={()=>handleDeleteAccount()}>Delete Account</button>
+    <div className="min-h-screen flex flex-col justify-center items-center">
+      <div className="bg-white p-8 rounded-xl shadow-lg w-[90%] lg:w-[40%] text-center">
+        {/* Profile Picture */}
+        <div className="flex justify-center">
+          <img
+            src={
+              photoURL ||
+              "https://via.placeholder.com/200?text=No+Image+Available"
+            }
+            alt="Profile"
+            className="w-32 h-32 rounded-full border-4 border-indigo-500 shadow-md"
+          />
+        </div>
+        {/* User Info */}
+        <h1 className="mt-4 text-2xl font-bold text-gray-800">{displayName}</h1>
+        <p className="text-gray-500 text-sm">{email}</p>
+
+        {/* Action Buttons */}
+        <div className="flex gap-4 justify-center mt-6">
+          <button
+            className="btn btn-primary px-6 py-2 rounded-lg text-white shadow-md hover:shadow-lg"
+            onClick={() => document.getElementById("my_modal_1").showModal()}
+          >
+            Update Profile
+          </button>
+          <button
+            className="btn bg-red-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-red-600"
+            onClick={handleDeleteAccount}
+          >
+            Delete Account
+          </button>
+        </div>
       </div>
-      
-    
-  </div>
-</div>
-
-
-
-
-{/* <button className="btn" onClick={()=>document.getElementById('my_modal_1').showModal()}>open modal</button> */}
-<dialog id="my_modal_1" className="modal">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg">Update Profile</h3>
-    <div className="modal-action">
-    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => document.getElementById('my_modal_1').close()}>✕</button>
-      <form method="dialog" onSubmit={handleUpdateProfile} className="card-body">
-      
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Name</span>
-          </label>
-          <input type="text" placeholder="Name" defaultValue={displayName} name='name' className="input input-bordered" />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Photo URL</span>
-          </label>
-          <input type="text" placeholder="Photo URL" defaultValue={photoURL} name='photo_url' className="input input-bordered" />
-        </div>
-        
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">Update</button>
-        </div>
-      </form>
-    
-     
     </div>
+
+    {/* Update Profile Modal */}
+    <dialog id="my_modal_1" className="modal">
+      <div className="modal-box bg-white rounded-lg shadow-xl">
+        <h3 className="font-bold text-lg text-gray-800">Update Profile</h3>
+        <form onSubmit={handleUpdateProfile} className="mt-4 space-y-4">
+          <div className="form-control">
+            <label className="label text-sm font-semibold text-gray-600">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              defaultValue={displayName}
+              className="input input-bordered w-full"
+              placeholder="Enter your name"
+            />
+          </div>
+          <div className="form-control">
+            <label className="label text-sm font-semibold text-gray-600">
+              Photo URL
+            </label>
+            <input
+              type="text"
+              name="photo_url"
+              defaultValue={photoURL}
+              className="input input-bordered w-full"
+              placeholder="Enter photo URL"
+            />
+          </div>
+          <div className="form-control mt-6">
+            <button className="btn btn-primary w-full">
+              Save Changes
+            </button>
+          </div>
+        </form>
+        <button
+          className="absolute top-2 right-2 text-gray-500 hover:text-red-500"
+          onClick={() => document.getElementById("my_modal_1").close()}
+        >
+          ✕
+        </button>
+      </div>
+    </dialog>
   </div>
-</dialog>
-        </div>
-    );
+);
 };
 
 export default Profile;

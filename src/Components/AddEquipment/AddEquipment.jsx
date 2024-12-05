@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 
 
@@ -38,6 +39,8 @@ const {user, categories} = useContext(AuthContext);
             });
             const data = await response.json();
             console.log(data)
+            toast.success('Equipment has been Added successfully');
+            e.target.reset();
         }
 
         fetchData()
@@ -50,102 +53,154 @@ const {user, categories} = useContext(AuthContext);
 
 
     return (
-        <div>
-            <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-      <form className="card-body" onSubmit={handleAddEquipment}>
-        <div className='flex'>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">User Name</span>
-          </label>
-          <input type="text" placeholder="User Name" name='userName'  value={user.displayName} readOnly className="input input-bordered" required />
+      <div className="min-h-screen bg-gray-100 py-10">
+        <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+          <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
+            Add New Equipment
+          </h1>
+          <form onSubmit={handleAddEquipment} className="space-y-6">
+            {/* User Info */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="form-control">
+                <label className="label font-medium">User Name</label>
+                <input
+                  type="text"
+                  name="userName"
+                  value={user?.displayName || ""}
+                  readOnly
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label font-medium">User Email</label>
+                <input
+                  type="email"
+                  name="userEmail"
+                  value={user?.email || ""}
+                  readOnly
+                  className="input input-bordered"
+                />
+              </div>
+            </div>
+  
+            {/* Equipment Details */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="form-control">
+                <label className="label font-medium">Item Name</label>
+                <input
+                  type="text"
+                  name="itemName"
+                  placeholder="Enter item name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label font-medium">Category</label>
+                <select
+                  name="category"
+                  className="select select-bordered"
+                  required
+                >
+                  <option disabled selected>
+                    Select Category
+                  </option>
+                  {categories.map((category) => (
+                    <option key={category._id} value={category.categoryName}>
+                      {category.categoryName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="form-control">
+                <label className="label font-medium">Processing Time</label>
+                <select
+                  name="processingTime"
+                  className="select select-bordered"
+                  required
+                >
+                  <option disabled selected>
+                    Select Processing Time
+                  </option>
+                  <option>1-2 Days</option>
+                  <option>3-5 Days</option>
+                  <option>1 Week</option>
+                  <option>More than 1 Week</option>
+                </select>
+              </div>
+              <div className="form-control">
+                <label className="label font-medium">Price ($)</label>
+                <input
+                  type="text"
+                  name="price"
+                  placeholder="Enter price"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label font-medium">Rating</label>
+                <input
+                  type="text"
+                  name="rating"
+                  placeholder="Enter rating (1-5)"
+                  className="input input-bordered"
+                  min="1"
+                  max="5"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label font-medium">Stock Quantity</label>
+                <input
+                  type="text"
+                  name="stockStatus"
+                  placeholder="Enter stock quantity"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+            </div>
+  
+            {/* Description */}
+            <div className="form-control">
+              <label className="label font-medium">Description</label>
+              <textarea
+                name="description"
+                className="textarea textarea-bordered"
+                placeholder="Enter item description"
+              ></textarea>
+            </div>
+  
+            {/* Customization */}
+            <div className="form-control">
+              <label className="label font-medium">Customization Options</label>
+              <textarea
+                name="customization"
+                className="textarea textarea-bordered"
+                placeholder="Enter customization details"
+              ></textarea>
+            </div>
+  
+            {/* Image */}
+            <div className="form-control">
+              <label className="label font-medium">Image URL</label>
+              <input
+                type="text"
+                name="imageURL"
+                placeholder="Enter image URL"
+                className="input input-bordered"
+                required
+              />
+            </div>
+  
+            {/* Submit Button */}
+            <div className="form-control">
+              <button className="btn btn-primary w-full">Add Equipment</button>
+            </div>
+          </form>
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">User Email</span>
-          </label>
-          <input type="email" placeholder="User Email" value={user.email} readOnly name='userEmail' className="input input-bordered" required />
-        </div>
-        </div>
-       <div className='flex'>
-       <div className="form-control">
-          <label className="label">
-            <span className="label-text">Item Name</span>
-          </label>
-          <input type="text" placeholder="Item Name" name='itemName'  className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Category</span>
-          </label>
-          <select className="select select-bordered w-full" name='category'>
-          <option disabled selected>Select Category</option>
-            {
-              categories.map((category) => <option 
-                key={category._id}
-                value={category.categoryName}
-                >{category.categoryName}</option>)
-            }
-            
-          
-            </select>
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Processing Time</span>
-          </label>
-          <select className="select select-bordered w-full" name='processingTime'>
-            <option disabled selected>Select Time</option>
-            <option>Han Solo</option>
-            <option>Greedo</option>
-            </select>
-        </div>
-       </div>
-        <div className='flex'>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Price</span>
-          </label>
-          <input type="text" placeholder="Price" name='price' className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Rating</span>
-          </label>
-          <input type="text" placeholder="Rating" name='rating' className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Stock Status</span>
-          </label>
-          <input type="text" placeholder="Quantity" name='stockStatus' className="input input-bordered" required />
-        </div>
-        </div>
-        
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Description</span>
-          </label>
-          <textarea className="textarea textarea-bordered" name='description' placeholder="Description"></textarea>
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Customization</span>
-          </label>
-          <textarea className="textarea textarea-bordered" name='customization' placeholder="Describe any special features or customizations available (e.g., extra grip, personalized engraving, favorite colors, weight, logo engraving etc.)"></textarea>
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Image URL</span>
-          </label>
-          <input type="text" placeholder="Image URL" name='imageURL' className="input input-bordered" required />
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">Submit</button>
-        </div>
-      </form>
-    </div>
-        </div>
+      </div>
     );
 };
 

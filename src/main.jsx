@@ -39,7 +39,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/allsportsequipments",
-        element: <AllSportsEquipments></AllSportsEquipments>
+        element: <AllSportsEquipments></AllSportsEquipments>,
+        loader: () => fetch(`http://localhost:5000/api/equipments/`)
       },
       {
         path: "/login",
@@ -76,7 +77,7 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/api/equipments/${params.equipment_id}`)
       },
       {
-        path: "myequipmentlist/updateequipment/:equipment_id",
+        path: "/updateequipment/:equipment_id",
         element: <PrivateRoutes><UpdateEquipment></UpdateEquipment></PrivateRoutes>,
         loader: ({params}) => fetch(`http://localhost:5000/api/equipments/${params.equipment_id}`)
       },
