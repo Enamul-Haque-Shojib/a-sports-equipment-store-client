@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
+    const [showPassword, setShowPassword] = useState(false); 
 
     const handleRegister = (e) => {
         e.preventDefault();
