@@ -1,8 +1,21 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Category: Lotus
+### A Sports Equipment Store
 
-Currently, two official plugins are available:
+## Website Name:
+### Sportanicals
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Website Live link:
+ <https://a-sports-equipment-store.web.app/>
+
+
+ ## Features:
+ - User can choose can add equipment
+ - User can see their equipment what they added
+ - User can update and delete the equipment
+ 
+ 
+   
+ 
+
+  
