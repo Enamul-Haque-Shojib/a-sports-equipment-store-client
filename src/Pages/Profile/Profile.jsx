@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import './Profile.css'
 import Swal from 'sweetalert2';
+import { auth } from '../../Firebase/firebase.init';
 
 const Profile = () => {
     const {user,setUser, updateUserProfile, loading, deleteUserProfile} = useContext(AuthContext);
@@ -27,7 +28,7 @@ const Profile = () => {
        
         
         
-            updateUserProfile( displayName, photoURL)
+            updateUserProfile(auth.currentUser, displayName, photoURL)
                 .then(() => {
                   
                   const fetchData = async()=>{

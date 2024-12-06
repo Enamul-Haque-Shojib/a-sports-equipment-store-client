@@ -35,7 +35,7 @@ const StockInEquip = () => {
       if (result.isConfirmed) {
       
       const fetchData = async()=>{
-          const response = await fetch(`http://localhost:5000/api/equipments/${id}`,{
+          const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/equipments/${id}`,{
               method: 'DELETE',
               headers: {
                   'Content-Type': 'application/json', 

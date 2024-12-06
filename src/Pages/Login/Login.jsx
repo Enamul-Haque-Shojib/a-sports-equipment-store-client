@@ -21,7 +21,8 @@ const Login = () => {
             navigate('/');
         })
         .catch(error =>{
-            // console.log('ERROR',error.message);
+            console.log('ERROR',error.message);
+            // toast.error('Email or password invalid');
         })
     }
     const handleSignInWithGoogle =()=>{
@@ -32,6 +33,7 @@ const Login = () => {
         })
         .catch(error =>{
             // console.log('ERROR',error.message);
+            toast.error('Invalid Credential');
         })
     }
     
@@ -104,7 +106,7 @@ const Login = () => {
             onClick={handleSignInWithGoogle}
             className="mt-6 w-full py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-3 text-gray-600 hover:bg-gray-100 transition duration-300"
           >
-            <i class="fa-brands fa-google"></i>
+            <i className="fa-brands fa-google"></i>
             Sign in with Google
           </button>
   

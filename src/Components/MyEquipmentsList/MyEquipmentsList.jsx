@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MyEquip from '../MyEquip/MyEquip';
 import { AuthContext } from '../../Provider/AuthProvider';
-import useStateHook from '../../CustomHook/useStateHook';
+
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 
@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet-async';
 
 const MyEquipmentsList = () => {
      const {user} = useContext(AuthContext);
-    const [myEquipList, seMyEquipList] = useStateHook([]);
+    const [myEquipList, seMyEquipList] = useState([]);
 
 
      useEffect(()=>{
@@ -46,7 +46,8 @@ const MyEquipmentsList = () => {
             if(data.data.deletedCount > 0){
               const deleteEquipment = myEquipList.filter(equip => equip._id != id);
 
-              myEquipList(deleteEquipment);
+              seMyEquipList(deleteEquipment);
+
               Swal.fire({
                   title: "Deleted!",
                   text: "Equipment has been deleted.",

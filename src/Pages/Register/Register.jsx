@@ -18,23 +18,23 @@ const Register = () => {
         const password = e.target.password.value;
 
         const userData = {user:{name:displayName, email, photoURL}}
-        // Password validation
-        // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-        // if (!passwordRegex.test(password)) {
-        //     toast.error(
-        //         "Password must contain at least 6 characters, including an uppercase letter and a lowercase letter."
-        //     );
-        //     return;
-        // }
+        
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+            toast.error(
+                "Password must contain at least 6 characters, including an uppercase letter and a lowercase letter."
+            );
+            return;
+        }
 
-        // Register user
+        
         createUser(email, password)
             .then((result) => {
                 const newUser = result.user;
                 
                 updateUserProfile(newUser, displayName, photoURL)
                     .then(() => {
-                        toast.success("Registration successful!");
+                        
 
                         const fetchData = async()=>{
                             const response = await fetch('https://a-sports-equipment-store-server-side.vercel.app/api/users/create-user',{
@@ -50,18 +50,19 @@ const Register = () => {
                         fetchData();
 
 
-
+                        toast.success("Registration successful!");
 
                         e.target.reset();
                         navigate('/');
                     })
                     .catch((error) => {
-                        console.error("Error updating profile:", error.message);
+                        // console.error("Error updating profile:", error.message);
+                        toast.error(error.message);
                     });
             })
             .catch((error) => {
                 console.error("Error creating user:", error.message);
-                toast.error("Failed to register. Please try again.");
+                toast.error(`${error.message},Failed to register. Please try again.`);
             });
     };
 
