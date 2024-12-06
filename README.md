@@ -14,7 +14,9 @@
  - User can see their equipment what they added
  - User can update and delete the equipment
  
- 
+ - User can check in the dashboard which product has been stock in and stock out
+
+
    
  
 
