@@ -32,7 +32,7 @@ const EquipmentDetails = () => {
             <img
               src={imageURL}
               alt={itemName}
-              className="w-full h-[400px] object-cover rounded-bl-lg"
+              className="w-full h-[400px] object-center rounded-bl-lg"
             />
           </div>
 

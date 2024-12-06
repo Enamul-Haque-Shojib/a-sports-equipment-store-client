@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateEquipment = () => {
 
@@ -12,7 +13,7 @@ const navigate = useNavigate();
 
 
 
-   const { _id,itemName, category, price, rating, stockStatus, processingTime, description, customization, imageURL} = equipData.data;
+   const { _id,itemName, category, price, rating, stockStatus, processingTime, description, customization, imageURL} = equipData?.data;
 
 
     const handleUpdateEquipment = (e) => {
@@ -48,13 +49,17 @@ const navigate = useNavigate();
 
     }
     return (
-      <div className="min-h-screen bg-gray-50 flex justify-center items-center py-10">
+      <div>
+        <Helmet>
+        <title>Update Equipment Page</title>
+      </Helmet>
+        <div className="min-h-screen bg-gray-50 flex justify-center items-center py-10">
         <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-8">
           <h1 className="text-2xl font-bold text-gray-800 mb-8 text-center">
             Update Equipment
           </h1>
           <form className="space-y-6" onSubmit={handleUpdateEquipment}>
-            {/* Row 1: User Name & Email */}
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
@@ -86,7 +91,7 @@ const navigate = useNavigate();
               </div>
             </div>
   
-            {/* Row 2: Item Name, Category & Processing Time */}
+            
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
@@ -126,11 +131,11 @@ const navigate = useNavigate();
                 </label>
                 <select
                   name="processingTime"
-                  defaultValue={processingTime}
+                  
                   className="select select-bordered w-full"
                   required
                 >
-                  <option disabled value="">
+                  <option disabled defaultValue={processingTime}>
                     Select Time
                   </option>
                   <option value="1-2 Days">1-2 Days</option>
@@ -140,7 +145,7 @@ const navigate = useNavigate();
               </div>
             </div>
   
-            {/* Row 3: Price, Rating & Stock Status */}
+        
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
@@ -186,7 +191,7 @@ const navigate = useNavigate();
               </div>
             </div>
   
-            {/* Row 4: Description */}
+        
             <div>
               <label className="block text-gray-700 font-medium mb-2">
                 Description
@@ -201,7 +206,7 @@ const navigate = useNavigate();
               ></textarea>
             </div>
   
-            {/* Row 5: Customization */}
+            
             <div>
               <label className="block text-gray-700 font-medium mb-2">
                 Customization
@@ -215,7 +220,7 @@ const navigate = useNavigate();
               ></textarea>
             </div>
   
-            {/* Row 6: Image URL */}
+        
             <div>
               <label className="block text-gray-700 font-medium mb-2">
                 Image URL
@@ -230,13 +235,15 @@ const navigate = useNavigate();
               />
             </div>
   
-            {/* Submit Button */}
+            
             <div className="mt-6 text-center">
               <button className="btn btn-primary w-full md:w-1/3">Update</button>
             </div>
           </form>
         </div>
       </div>
+      </div>
+      
     );
 };
 

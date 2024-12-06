@@ -174,7 +174,7 @@ const {user, categories} = useContext(AuthContext);
   
             {/* Customization */}
             <div className="form-control">
-              <label className="label font-medium">Customization Options</label>
+              <label className="label font-medium">Customization</label>
               <textarea
                 name="customization"
                 className="textarea textarea-bordered"

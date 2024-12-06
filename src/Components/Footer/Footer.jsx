@@ -12,7 +12,7 @@ const Footer = () => {
         {/* Logo and Contact Info */}
         <article className="flex flex-col gap-y-6">
           <div className="flex items-center gap-4">
-            <h3 className="font-extrabold text-3xl">Peddy</h3>
+            <h3 className="font-extrabold text-3xl">Sportanicals</h3>
           </div>
           <div className="text-gray-400 leading-loose">
             <p>Location: Av. Washington 165, NYCA</p>
@@ -85,7 +85,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-400">
-        <p>&copy; {new Date().getFullYear()} Peddy. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Sportanicals. All rights reserved.</p>
       </div>
     </footer>
   );

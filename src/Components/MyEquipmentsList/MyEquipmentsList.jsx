@@ -7,15 +7,15 @@ import Swal from 'sweetalert2';
 
 
 const MyEquipmentsList = () => {
-     const {user, loading,equipments, setEquipments} = useContext(AuthContext);
-
+     const {user} = useContext(AuthContext);
+    const [myEquipList, seMyEquipList] = useStateHook([]);
 
 
      useEffect(()=>{
       const fetchData=async()=>{
         const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/equipments/queryEquipments?userEmail=${user.email}`)
         const data = await response.json();
-        setEquipments(data.data)
+        seMyEquipList(data.data)
       }
       fetchData();
      },[]);
@@ -43,9 +43,9 @@ const MyEquipmentsList = () => {
             const data = await response.json();
             console.log(data.data)
             if(data.data.deletedCount > 0){
-              const deleteEquipment = equipments.filter(equip => equip._id != id);
+              const deleteEquipment = myEquipList.filter(equip => equip._id != id);
 
-              setEquipments(deleteEquipment);
+              myEquipList(deleteEquipment);
               Swal.fire({
                   title: "Deleted!",
                   text: "Equipment has been deleted.",
@@ -56,12 +56,6 @@ const MyEquipmentsList = () => {
         fetchData();
       }
     })
-       
-        
-        // const deleteEquipment = equipments.filter(equip => equip._id != id);
-        
-        
-        // setEquipments(deleteEquipment);
     
     }
 
@@ -73,7 +67,7 @@ const MyEquipmentsList = () => {
               My Equipments
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {equipments.map((equip) => (
+              {myEquipList.map((equip) => (
                 <MyEquip
                   key={equip._id}
                   equip={equip}
@@ -81,7 +75,7 @@ const MyEquipmentsList = () => {
                 />
               ))}
             </div>
-            {equipments.length === 0 && (
+            {myEquipList.length === 0 && (
               <p className="text-center text-gray-600 mt-10">
                 You haven't added any equipment yet.
               </p>

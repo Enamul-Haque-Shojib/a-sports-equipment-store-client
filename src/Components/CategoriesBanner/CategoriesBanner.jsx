@@ -1,47 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const CategoriesBanner = () => {
     
-
-    const categories = [
-        {
-          name: "Cricket",
-          image: "https://media.istockphoto.com/id/177427917/photo/close-up-of-red-cricket-ball-and-bat-sitting-on-grass.jpg?s=612x612&w=0&k=20&c=DcorerbBUeDNTfld3OclgHxCty4jih2yDCzipffX6zw=",
-        },
-        {
-          name: "Badminton",
-          image: "https://via.placeholder.com/150?text=Badminton",
-        },
-        {
-          name: "Football",
-          image: "https://via.placeholder.com/150?text=Football",
-        },
-        {
-          name: "Running",
-          image: "https://via.placeholder.com/150?text=Running",
-        },
-        {
-          name: "Tennis",
-          image: "https://via.placeholder.com/150?text=Tennis",
-        },
-        {
-          name: "Tennis",
-          image: "https://via.placeholder.com/150?text=Tennis",
-        },
-        {
-          name: "Tennis",
-          image: "https://via.placeholder.com/150?text=Tennis",
-        },
-        {
-          name: "Tennis",
-          image: "https://via.placeholder.com/150?text=Tennis",
-        },
-      ];
+  const {categories} = useContext(AuthContext);
     
       return (
         <div className="max-w-[95%] mx-auto py-8">
@@ -49,10 +16,10 @@ const CategoriesBanner = () => {
             Categories
           </h2>
           <Swiper
-            modules={[Pagination]}
+            modules={[Navigation,Pagination, Autoplay]}
             
             pagination={{ clickable: true }}
-            
+            autoplay={{ delay: 3000 }}
             spaceBetween={10}
             slidesPerView={4}
             loop
@@ -65,15 +32,15 @@ const CategoriesBanner = () => {
           >
             {categories.map((category, index) => (
               <SwiperSlide key={index} className="flex flex-col items-center">
-                <div className="w-40 h-40 mx-auto rounded-full bg-gray-100 flex items-center justify-center overflow-hidden shadow-lg">
+                <div className="w-[250px] h-[250px] mx-auto rounded-full bg-gray-100 flex items-center justify-center overflow-hidden shadow-lg">
                   <img
-                    src={category.image}
-                    alt={category.name}
+                    src={category.imageURL}
+                    alt={category.categoryName}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <p className="text-center text-lg font-medium text-gray-700 mt-4">
-                  {category.name}
+                  {category.categoryName}
                 </p>
               </SwiperSlide>
             ))}

@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const{equipments, setEquipments} = useContext(AuthContext);
-    const equipmentsList = equipments.slice(0,3)
+    const equipmentsList = equipments.slice(0,5)
     return (
         <div className="bg-gray-50">
             <Helmet>
