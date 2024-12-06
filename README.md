@@ -10,7 +10,7 @@
 
 
  ## Features:
- - User can choose can add equipment
+ - User can add equipment
  - User can see their equipment what they added
  - User can update and delete the equipment
  
