@@ -8,9 +8,6 @@ import StockOutEquip from '../../Components/StockOutEquip/StockOutEquip';
 
 const Dashboard = () => {
 
-
-
-
   return (
     <div className="min-h-screen bg-gray-50">
       

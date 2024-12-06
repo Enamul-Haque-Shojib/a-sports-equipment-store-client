@@ -10,9 +10,6 @@ const UpdateEquipment = () => {
 const navigate = useNavigate();
    const equipData = useLoaderData();
 
-
-
-
    const { _id,itemName, category, price, rating, stockStatus, processingTime, description, customization, imageURL} = equipData?.data;
 
 

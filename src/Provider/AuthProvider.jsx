@@ -99,8 +99,6 @@ const AuthProvider = ({children}) => {
         equipments,
         setEquipments
 
-        
-
     }
     return (
         <AuthContext.Provider value={authInfo}>
