@@ -13,21 +13,21 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Helmet */}
+      
       <Helmet>
         <title>Dashboard</title>
       </Helmet>
 
       <div className="lg:w-[90%] w-[95%] mx-auto py-10">
-        {/* Header */}
+        
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800">Dashboard</h1>
           <p className="text-gray-600 mt-2">Manage your inventory efficiently</p>
         </div>
 
-        {/* Tab Structure */}
+        
         <Tabs className="lg:flex bg-white shadow-lg rounded-lg overflow-hidden">
-          {/* Tab List */}
+          
           <TabList className="lg:w-1/4 bg-gray-100 border-r">
             <Tab className="py-4 px-6 text-lg font-medium text-gray-800 border-b hover:bg-gray-200 focus:outline-none focus:bg-gray-300">
               Stock In
@@ -37,7 +37,7 @@ const Dashboard = () => {
             </Tab>
           </TabList>
 
-          {/* Tab Panels */}
+        
           <div className="lg:w-3/4 p-6 bg-gray-50">
             <TabPanel>
               <h2 className="text-2xl font-semibold mb-4">Stock In Items</h2>

@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -53,13 +54,17 @@ const {user, categories} = useContext(AuthContext);
 
 
     return (
-      <div className="min-h-screen bg-gray-100 py-10">
+      <div>
+        <Helmet>
+        <title>Add Equipment Page</title>
+      </Helmet>
+        <div className="min-h-screen bg-gray-100 py-10">
         <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
             Add New Equipment
           </h1>
           <form onSubmit={handleAddEquipment} className="space-y-6">
-            {/* User Info */}
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="form-control">
                 <label className="label font-medium">User Name</label>
@@ -83,7 +88,7 @@ const {user, categories} = useContext(AuthContext);
               </div>
             </div>
   
-            {/* Equipment Details */}
+          
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="form-control">
                 <label className="label font-medium">Item Name</label>
@@ -162,7 +167,7 @@ const {user, categories} = useContext(AuthContext);
               </div>
             </div>
   
-            {/* Description */}
+            
             <div className="form-control">
               <label className="label font-medium">Description</label>
               <textarea
@@ -172,7 +177,7 @@ const {user, categories} = useContext(AuthContext);
               ></textarea>
             </div>
   
-            {/* Customization */}
+          
             <div className="form-control">
               <label className="label font-medium">Customization</label>
               <textarea
@@ -182,7 +187,7 @@ const {user, categories} = useContext(AuthContext);
               ></textarea>
             </div>
   
-            {/* Image */}
+        
             <div className="form-control">
               <label className="label font-medium">Image URL</label>
               <input
@@ -194,12 +199,13 @@ const {user, categories} = useContext(AuthContext);
               />
             </div>
   
-            {/* Submit Button */}
+            
             <div className="form-control">
               <button className="btn btn-primary w-full">Add Equipment</button>
             </div>
           </form>
         </div>
+      </div>
       </div>
     );
 };

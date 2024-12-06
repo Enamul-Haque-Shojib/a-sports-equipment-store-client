@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-10">
       <section className="lg:w-[80%] w-[95%] mx-auto lg:flex flex lg:flex-row flex-col lg:justify-between lg:gap-y-0 gap-y-12">
-        {/* Logo and Contact Info */}
+  
         <article className="flex flex-col gap-y-6">
           <div className="flex items-center gap-4">
             <h3 className="font-extrabold text-3xl">Sportanicals</h3>
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
         </article>
 
-        {/* Useful Links */}
+        
         <article className="flex flex-col gap-y-6 lg:text-start text-center">
           <h3 className="font-bold text-xl">Useful Links</h3>
           <ul className="space-y-2 text-gray-400">
@@ -67,7 +67,7 @@ const Footer = () => {
             
         </article>
 
-        {/* Subscribe Section */}
+        
         <article className="flex flex-col gap-y-6 lg:text-start text-center">
           <h3 className="font-bold text-xl">Drop a Message</h3>
           <div className="flex flex-col items-center lg:items-start gap-3">
@@ -83,7 +83,7 @@ const Footer = () => {
         </article>
       </section>
 
-      {/* Footer Bottom */}
+      
       <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-400">
         <p>&copy; {new Date().getFullYear()} Sportanicals. All rights reserved.</p>
       </div>

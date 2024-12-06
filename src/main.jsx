@@ -9,7 +9,7 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 
-import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
+
 import PrivateRoutes from './Routes/PrivateRoutes';
 
 import Dashboard from './Pages/Dashboard/Dashboard';
@@ -24,6 +24,7 @@ import AllSportsEquipments from './Pages/AllSportsEquipments/AllSportsEquipments
 import UpdateEquipment from './Pages/UpdateEquipment/UpdateEquipment';
 import AddEquipment from './Components/AddEquipment/AddEquipment';
 import MyEquipmentsList from './Components/MyEquipmentsList/MyEquipmentsList';
+import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
 
 
 

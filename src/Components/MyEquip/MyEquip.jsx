@@ -7,7 +7,7 @@ const MyEquip = ({equip,handleDeleteEquipment}) => {
     const {_id, imageURL, itemName, price, category, stockStatus} = equip;
     return (
         <div className="bg-white shadow-md rounded-lg overflow-hidden border transition-transform duration-300 hover:scale-105">
-          {/* Image Section */}
+          
           <div className="h-48 w-full bg-gray-100">
             <img
               className="h-full w-full object-cover"
@@ -16,14 +16,14 @@ const MyEquip = ({equip,handleDeleteEquipment}) => {
             />
           </div>
     
-          {/* Details Section */}
+          
           <div className="p-5">
             <h2 className="text-lg font-bold text-gray-800">{itemName}</h2>
             <p className="text-sm text-gray-600">Category: {category}</p>
             <p className="text-sm text-gray-600">Stock: {stockStatus}</p>
             <p className="text-md font-semibold text-blue-600">Price: ${price}</p>
     
-            {/* Buttons */}
+            
             <div className="mt-4 flex gap-3">
               <Link to={`/equipmentdetails/${_id}`}>
                 <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">

@@ -46,7 +46,7 @@ const Login = () => {
             Please login to your account to continue.
           </p>
           <form onSubmit={handleLogin}>
-            {/* Email Field */}
+            
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Email
@@ -60,7 +60,7 @@ const Login = () => {
               />
             </div>
   
-            {/* Password Field */}
+            
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Password
@@ -74,7 +74,7 @@ const Login = () => {
               />
             </div>
   
-            {/* Forgot Password */}
+            
             <div className="mb-4 flex justify-between items-center">
               <Link
                 to="/forgotpassword"
@@ -84,7 +84,7 @@ const Login = () => {
               </Link>
             </div>
   
-            {/* Login Button */}
+          
             <button
               type="submit"
               className="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
@@ -99,7 +99,7 @@ const Login = () => {
             <hr className="w-1/3 border-gray-300" />
           </div>
   
-          {/* Google Sign-In */}
+        
           <button
             onClick={handleSignInWithGoogle}
             className="mt-6 w-full py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-3 text-gray-600 hover:bg-gray-100 transition duration-300"
@@ -108,7 +108,7 @@ const Login = () => {
             Sign in with Google
           </button>
   
-          {/* Register Link */}
+          
           <p className="text-center mt-6 text-gray-600">
             Don’t have an account?{" "}
             <Link

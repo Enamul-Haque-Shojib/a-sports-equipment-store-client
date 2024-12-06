@@ -17,18 +17,18 @@ const Home = () => {
     return (
         <div className="bg-gray-50">
             <Helmet>
-                <title>Sports Gear Hub - Home</title>
+                <title>Home Page</title>
                 
             </Helmet>
-            {/* Hero Slider */}
+            
             <Slider />
 
-            {/* Categories Banner */}
+            
             <section className="py-12 bg-gray-100">
                 <CategoriesBanner />
             </section>
 
-            {/* Sports Equipment Section */}
+        
             <section className="py-12 lg:w-[85%] w-[95%] mx-auto">
                 <h1 className="text-4xl font-bold text-center text-gray-800 pb-8">
                     Explore Our Sports Equipment
@@ -43,17 +43,17 @@ const Home = () => {
                 
             </section>
 
-            {/* Equipment Gallery */}
+            
             <section className="py-12 bg-gray-100">
                 <EquipmentsGallery />
             </section>
 
-            {/* FAQ Section */}
+        
             <section className="py-12">
                 <FaqHelp />
             </section>
 
-            {/* Contact and Support */}
+        
             <section className="py-12 bg-gray-100">
                 <ContactAndSupport />
             </section>

@@ -9,10 +9,10 @@ const ContactAndSupport = () => {
           </h2>
     
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Contact Option 1: Phone */}
+            
             <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
               <div className="flex items-center space-x-4">
-                {/* <PhoneIcon className="h-8 w-8 text-blue-600" /> */}
+                
                 <h3 className="text-lg font-bold text-gray-800">Call Us</h3>
               </div>
               <p className="text-sm text-gray-600 mt-2">
@@ -21,10 +21,10 @@ const ContactAndSupport = () => {
               <p className="text-blue-600 mt-4 font-medium">+1 (123) 456-7890</p>
             </div>
     
-            {/* Contact Option 2: Email */}
+            
             <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
               <div className="flex items-center space-x-4">
-                {/* <MailIcon className="h-8 w-8 text-green-600" /> */}
+              
                 <h3 className="text-lg font-bold text-gray-800">Email Us</h3>
               </div>
               <p className="text-sm text-gray-600 mt-2">
@@ -33,10 +33,10 @@ const ContactAndSupport = () => {
               <p className="text-green-600 mt-4 font-medium">support@example.com</p>
             </div>
     
-            {/* Contact Option 3: Chat */}
+          
             <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
               <div className="flex items-center space-x-4">
-                {/* <ChatIcon className="h-8 w-8 text-purple-600" /> */}
+              
                 <h3 className="text-lg font-bold text-gray-800">Live Chat</h3>
               </div>
               <p className="text-sm text-gray-600 mt-2">

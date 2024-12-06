@@ -3,6 +3,7 @@ import MyEquip from '../MyEquip/MyEquip';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useStateHook from '../../CustomHook/useStateHook';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -61,7 +62,11 @@ const MyEquipmentsList = () => {
 
 
     return (
-        <div className="min-h-screen bg-gray-50 py-10">
+       <div>
+        <Helmet>
+        <title>My Equipments</title>
+      </Helmet>
+         <div className="min-h-screen bg-gray-50 py-10">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-3xl font-bold text-center text-gray-800 mb-10">
               My Equipments
@@ -82,6 +87,7 @@ const MyEquipmentsList = () => {
             )}
           </div>
         </div>
+       </div>
       );
 };
 

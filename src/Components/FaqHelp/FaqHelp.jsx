@@ -24,7 +24,7 @@ const FaqHelp = () => {
         },
       ];
     
-      // State to manage expanded FAQ items
+      
       const [expanded, setExpanded] = useState(null);
     
       const toggleFAQ = (index) => {

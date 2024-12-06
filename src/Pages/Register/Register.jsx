@@ -66,7 +66,11 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
+      <div>
+        <Helmet>
+        <title>Register Page</title>
+      </Helmet>
+         <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
           <Helmet>
             <title>Register Page</title>
           </Helmet>
@@ -78,7 +82,7 @@ const Register = () => {
               Sign up to get started with our platform.
             </p>
             <form onSubmit={handleRegister}>
-              {/* Name Field */}
+              
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Name
@@ -92,7 +96,7 @@ const Register = () => {
                 />
               </div>
     
-              {/* Email Field */}
+              
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Email
@@ -106,7 +110,7 @@ const Register = () => {
                 />
               </div>
     
-              {/* Photo URL Field */}
+              
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Photo URL (Optional)
@@ -119,7 +123,7 @@ const Register = () => {
                 />
               </div>
     
-              {/* Password Field */}
+              
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Password
@@ -145,7 +149,7 @@ const Register = () => {
                 </div>
               </div>
     
-              {/* Register Button */}
+              
               <button
                 type="submit"
                 className="w-full py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-300"
@@ -154,7 +158,7 @@ const Register = () => {
               </button>
             </form>
     
-            {/* Redirect to Login */}
+            
             <p className="text-center mt-6 text-gray-600">
               Already have an account?{" "}
               <Link
@@ -166,6 +170,7 @@ const Register = () => {
             </p>
           </div>
         </div>
+      </div>
       );
 };
 

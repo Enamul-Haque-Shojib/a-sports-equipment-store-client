@@ -106,41 +106,6 @@ const handleDeleteAccount=async()=>{
     }
   });
 
-
-
-
-
-
-
-
-
-  // const password = prompt("Please enter your password to confirm account deletion:");
-  // const credential = EmailAuthProvider.credential(email, password);
-  // reauthenticateWithCredential(user, credential)
-  // .then(() => {
-  // deleteUserProfile()
-  // .then(() => {
-                  
-  //   const fetchData = async()=>{
-  //     const response = await fetch(`http://localhost:5000/api/users/${email}`,{
-  //         method: 'DELETE',
-  //         headers: {
-  //             'Content-Type': 'application/json', 
-  //         },
-  //     });
-  //     const data = await response.json();
-  //     console.log(data)
-  // }
-  // fetchData();
-
-  //     // toast.success("Profile deleted successfully");
-  // })
-  // .catch((error) => {
-  //     console.error("Error deleting profile:", error.message);
-  // });
-  // }).catch((error) => {
-  //   console.error("Error re authenticate profile:", error.message);
-  // });
   
 }
 
@@ -152,7 +117,7 @@ return (
 
     <div className="min-h-screen flex flex-col justify-center items-center">
       <div className="bg-white p-8 rounded-xl shadow-lg w-[90%] lg:w-[40%] text-center">
-        {/* Profile Picture */}
+        
         <div className="flex justify-center">
           <img
             src={
@@ -163,11 +128,11 @@ return (
             className="w-32 h-32 rounded-full border-4 border-indigo-500 shadow-md"
           />
         </div>
-        {/* User Info */}
+      
         <h1 className="mt-4 text-2xl font-bold text-gray-800">{displayName}</h1>
         <p className="text-gray-500 text-sm">{email}</p>
 
-        {/* Action Buttons */}
+        
         <div className="flex gap-4 justify-center mt-6">
           <button
             className="btn btn-primary px-6 py-2 rounded-lg text-white shadow-md hover:shadow-lg"
@@ -185,7 +150,7 @@ return (
       </div>
     </div>
 
-    {/* Update Profile Modal */}
+    
     <dialog id="my_modal_1" className="modal">
       <div className="modal-box bg-white rounded-lg shadow-xl">
         <h3 className="font-bold text-lg text-gray-800">Update Profile</h3>

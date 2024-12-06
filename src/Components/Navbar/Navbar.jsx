@@ -39,12 +39,12 @@ const Navbar = () => {
   return (
     <div className="bg-gradient-to-r from-purple-500 to-indigo-500 shadow-lg text-white sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
+        
         <h1 className="text-2xl font-extrabold tracking-wider">
         Sportanicals
         </h1>
 
-        {/* Desktop Navigation */}
+      
         <div className="hidden lg:flex space-x-6 items-center">
           <NavLink
             to="/"
@@ -95,7 +95,7 @@ const Navbar = () => {
           
         </div>
 
-        {/* User Profile or Auth Links */}
+        
         <div className="hidden lg:flex items-center space-x-4">
         <button
           onClick={toggleTheme}
@@ -147,7 +147,7 @@ const Navbar = () => {
           
         </div>
 
-        {/* Mobile Navigation Button */}
+      
         <button
           className="lg:hidden text-2xl"
           onClick={handleNavField}
@@ -160,7 +160,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+    
       <div
         className={`lg:hidden bg-white text-black fixed inset-0 transition-transform duration-300 z-40 ${
           open ? "translate-x-0" : "translate-x-full"
