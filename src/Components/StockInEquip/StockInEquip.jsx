@@ -42,7 +42,7 @@ const StockInEquip = () => {
               },
           });
           const data = await response.json();
-          console.log(data.data)
+          // console.log(data.data)
           if(data.data.deletedCount > 0){
             const deleteEquipment = stockInEquip.filter(equip => equip._id != id);
 

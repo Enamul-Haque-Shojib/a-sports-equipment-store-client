@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const StockOutEquip = () => {
     const {user} = useContext(AuthContext);
-    console.log(user.email)
+    // console.log(user.email)
     const [stockOutEquip, setStockOutEquip] = useState([]);
     
         useEffect(() =>{
@@ -39,7 +39,7 @@ const StockOutEquip = () => {
                     },
                 });
                 const data = await response.json();
-                console.log(data.data)
+                // console.log(data.data)
                 if(data.data.deletedCount > 0){
                   const deleteEquipment = stockOutEquip.filter(equip => equip._id != id);
     

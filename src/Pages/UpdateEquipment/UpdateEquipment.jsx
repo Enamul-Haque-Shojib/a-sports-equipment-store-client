@@ -41,7 +41,7 @@ const navigate = useNavigate();
                 body: JSON.stringify(equipments),
             });
             const data = await response.json();
-            console.log(data)
+            // console.log(data)
             toast.success('Equipment has been updated successfully');
             navigate(-1);
         }

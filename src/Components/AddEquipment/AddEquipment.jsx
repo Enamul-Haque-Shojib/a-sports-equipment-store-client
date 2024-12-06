@@ -39,7 +39,7 @@ const {user, categories} = useContext(AuthContext);
                 body: JSON.stringify(equipments),
             });
             const data = await response.json();
-            console.log(data)
+            // console.log(data)
             toast.success('Equipment has been Added successfully');
             e.target.reset();
         }
