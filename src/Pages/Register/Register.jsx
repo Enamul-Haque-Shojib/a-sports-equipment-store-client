@@ -37,7 +37,7 @@ const Register = () => {
                         toast.success("Registration successful!");
 
                         const fetchData = async()=>{
-                            const response = await fetch('http://localhost:5000/api/users/create-user',{
+                            const response = await fetch('https://a-sports-equipment-store-server-side.vercel.app/api/users/create-user',{
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json', 

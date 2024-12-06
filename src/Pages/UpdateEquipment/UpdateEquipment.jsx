@@ -10,9 +10,7 @@ const navigate = useNavigate();
    const equipData = useLoaderData();
 
 
-//    useEffect(() => {
 
-//    },[])
 
    const { _id,itemName, category, price, rating, stockStatus, processingTime, description, customization, imageURL} = equipData.data;
 
@@ -34,7 +32,7 @@ const navigate = useNavigate();
         const equipments = {userName,userEmail, itemName,category,price,rating,stockStatus,processingTime,description, customization,imageURL};
         
         const fetchData = async()=>{
-            const response = await fetch(`http://localhost:5000/api/equipments/${_id}`,{
+            const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/equipments/${_id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json', 

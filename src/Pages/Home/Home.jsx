@@ -18,7 +18,7 @@ const Home = () => {
         <div className="bg-gray-50">
             <Helmet>
                 <title>Sports Gear Hub - Home</title>
-                <link rel="canonical" href="https://www.example.com/" />
+                
             </Helmet>
             {/* Hero Slider */}
             <Slider />

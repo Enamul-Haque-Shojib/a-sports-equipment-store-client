@@ -11,7 +11,7 @@ const StockInEquip = () => {
 
     useEffect(() =>{
         const fetchData = async()=>{
-            const response = await fetch(`http://localhost:5000/api/equipments/queryStock?userEmail=${user.email}&stockStatusType=stockIn`);
+            const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/equipments/queryStock?userEmail=${user.email}&stockStatusType=stockIn`);
             const data = await response.json();
             setStockInEquip(data.data);
         }

@@ -18,14 +18,14 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
         const fetchData = async()=>{
-          const response = await fetch(`http://localhost:5000/api/categories`);
+          const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/categories`);
           const data = await response.json();
           setCategories(data.data);
         
       }
       fetchData();
       const fetchData2 = async () => {
-        const response = await fetch('http://localhost:5000/api/equipments/');
+        const response = await fetch('https://a-sports-equipment-store-server-side.vercel.app/api/equipments/');
         const data = await response.json();
         setEquipments(data.data);
     };

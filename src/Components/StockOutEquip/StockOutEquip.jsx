@@ -10,7 +10,7 @@ const StockOutEquip = () => {
     
         useEffect(() =>{
             const fetchData = async()=>{
-                const response = await fetch(`http://localhost:5000/api/equipments/queryStock?userEmail=${user.email}&stockStatusType=stockOut`);
+                const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/equipments/queryStock?userEmail=${user.email}&stockStatusType=stockOut`);
                 const data = await response.json();
                 setStockOutEquip(data.data);
             }
@@ -32,7 +32,7 @@ const StockOutEquip = () => {
             if (result.isConfirmed) {
             
             const fetchData = async()=>{
-                const response = await fetch(`http://localhost:5000/api/equipments/${id}`,{
+                const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/equipments/${id}`,{
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json', 
@@ -56,11 +56,7 @@ const StockOutEquip = () => {
           }
         })
            
-            
-            // const deleteEquipment = equipments.filter(equip => equip._id != id);
-            
-            
-            // setEquipments(deleteEquipment);
+        
         
         }
         

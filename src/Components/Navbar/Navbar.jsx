@@ -123,7 +123,7 @@ const Navbar = () => {
               </div>
               <button
                 onClick={handleSignOut}
-                className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-full transition duration-300"
+                className="px-4 py-2 bg-red-400 hover:bg-red-500 rounded-full transition duration-300"
               >
                 Logout
               </button>
@@ -226,7 +226,7 @@ const Navbar = () => {
                 </NavLink>
                 <button
                   onClick={handleSignOut}
-                  className="block w-full px-4 py-2 text-left text-red-500 hover:bg-red-100"
+                  className="block w-full px-4 py-2 text-left text-red-600 hover:bg-red-100"
                 >
                   Logout
                 </button>
@@ -252,6 +252,17 @@ const Navbar = () => {
                 </NavLink>
               </>
             )}
+            <button
+          onClick={toggleTheme}
+        
+          className="hidden lg:block p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md transition duration-300"
+        >
+          {theme === "light" ? (
+            <i className="fas fa-moon text-gray-800"></i>
+          ) : (
+            <i className="fas fa-sun text-yellow-400"></i>
+          )}
+        </button>
           </div>
         </div>
       </div>

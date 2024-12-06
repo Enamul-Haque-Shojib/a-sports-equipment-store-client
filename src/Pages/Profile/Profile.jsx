@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
-import { auth } from '../../Firebase/firebase.init';
+
 import { toast } from 'react-toastify';
-import { deleteUser, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
+import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import './Profile.css'
+import Swal from 'sweetalert2';
 
 const Profile = () => {
     const {user,setUser, updateUserProfile, loading, deleteUserProfile} = useContext(AuthContext);
@@ -30,7 +31,7 @@ const Profile = () => {
                 .then(() => {
                   
                   const fetchData = async()=>{
-                    const response = await fetch(`http://localhost:5000/api/users/${email}`,{
+                    const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/users/${email}`,{
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json', 
@@ -58,33 +59,88 @@ const Profile = () => {
 
 const handleDeleteAccount=async()=>{
 
-  const password = prompt("Please enter your password to confirm account deletion:");
-  const credential = EmailAuthProvider.credential(email, password);
-  reauthenticateWithCredential(user, credential)
-  .then(() => {
-  deleteUserProfile()
-  .then(() => {
-                  
-    const fetchData = async()=>{
-      const response = await fetch(`http://localhost:5000/api/users/${email}`,{
-          method: 'DELETE',
-          headers: {
-              'Content-Type': 'application/json', 
-          },
-      });
-      const data = await response.json();
-      console.log(data)
-  }
-  fetchData();
+  Swal.fire({
+    title: "Are you sure?",
+    text: "If you delete your account, your 'Sports Equipment Store's equipments and user data will be lost and cannot be restore from database forever!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      
 
-      toast.success("Profile deleted successfully");
-  })
-  .catch((error) => {
-      console.error("Error deleting profile:", error.message);
+      const password = prompt("Please enter your password to confirm account deletion:");
+      const credential = EmailAuthProvider.credential(email, password);
+      reauthenticateWithCredential(user, credential)
+      .then(() => {
+      deleteUserProfile()
+      .then(() => {
+                      
+        const fetchData = async()=>{
+          const response = await fetch(`https://a-sports-equipment-store-server-side.vercel.app/api/users/${email}`,{
+              method: 'DELETE',
+              headers: {
+                  'Content-Type': 'application/json', 
+              },
+          });
+          const data = await response.json();
+      }
+      fetchData();
+      
+      })
+      .catch((error) => {
+          console.error("Error deleting profile:", error.message);
+      });
+      }).catch((error) => {
+        console.error("Error re authenticate profile:", error.message);
+      });
+      
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your Account has been deleted.",
+          icon: "success"
+        });
+      
+    }
   });
-  }).catch((error) => {
-    console.error("Error re authenticate profile:", error.message);
-  });
+
+
+
+
+
+
+
+
+
+  // const password = prompt("Please enter your password to confirm account deletion:");
+  // const credential = EmailAuthProvider.credential(email, password);
+  // reauthenticateWithCredential(user, credential)
+  // .then(() => {
+  // deleteUserProfile()
+  // .then(() => {
+                  
+  //   const fetchData = async()=>{
+  //     const response = await fetch(`http://localhost:5000/api/users/${email}`,{
+  //         method: 'DELETE',
+  //         headers: {
+  //             'Content-Type': 'application/json', 
+  //         },
+  //     });
+  //     const data = await response.json();
+  //     console.log(data)
+  // }
+  // fetchData();
+
+  //     // toast.success("Profile deleted successfully");
+  // })
+  // .catch((error) => {
+  //     console.error("Error deleting profile:", error.message);
+  // });
+  // }).catch((error) => {
+  //   console.error("Error re authenticate profile:", error.message);
+  // });
   
 }
 

@@ -22,7 +22,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Categories from '../../Components/Categories/Categories';
 import Equipments from '../../Components/Equipments/Equipments';
-import { AuthContext } from '../../Provider/AuthProvider';
+
 import { useLoaderData } from 'react-router-dom';
 
 const AllSportsEquipments = () => {
@@ -52,9 +52,9 @@ const AllSportsEquipments = () => {
     const handleCategories=(categoryName)=>{
         let url = '';
         if(categoryName === 'All'){
-            url = `http://localhost:5000/api/equipments/queryEquipments`;
+            url = `https://a-sports-equipment-store-server-side.vercel.app/api/equipments/queryEquipments`;
         }else{
-            url=`http://localhost:5000/api/equipments/queryEquipments?category=${categoryName}`
+            url=`https://a-sports-equipment-store-server-side.vercel.app/api/equipments/queryEquipments?category=${categoryName}`
         }
         const fetchData = async () => {
             const response = await fetch(url);
