@@ -16,6 +16,7 @@
  
  - User can check in the dashboard which product has been stock in and stock out
  - User can update and delete their profile.
+  - If User delete their account, the User's all user and equipment data will deleted from database
 
 
    
