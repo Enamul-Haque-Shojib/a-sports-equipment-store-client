@@ -6,12 +6,7 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  // apiKey: "AIzaSyDHc2ABK4KTGP1KsUS7q-brYuHKUuHBnM4",
-  // authDomain: "a-sports-equipment-store.firebaseapp.com",
-  // projectId: "a-sports-equipment-store",
-  // storageBucket: "a-sports-equipment-store.firebasestorage.app",
-  // messagingSenderId: "269406438484",
-  // appId: "1:269406438484:web:f39c586fa500f0bcc699c1"
+ 
   apiKey: import.meta.env.VITE_API_KEY,
   authDomain: import.meta.env.VITE_AUTH_DOMAIN,
   projectId: import.meta.env.VITE_PROJECT_ID,
